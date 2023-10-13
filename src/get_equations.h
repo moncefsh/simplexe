@@ -5,7 +5,7 @@ using namespace std;
 
 enum EQ_TYPE { 
 	smaller,
-	samller_eq,
+	smaller_eq,
 	equal_eq,
 	bigger_eq,
 	bigger
@@ -17,8 +17,8 @@ struct equation {
 	int num_var;
 	vector<double> factors;
 	double left_num;
-	equation(EQ_TYPE tp, vector<double> ft,double ln)
-		:type(tp),factors(ft),left_num(ln){}
+	equation(EQ_TYPE tp,int nv, vector<double> ft,double ln)
+		:type(tp),num_var(nv),factors(ft),left_num(ln){}
 	void print_eq();
 };
 class problem

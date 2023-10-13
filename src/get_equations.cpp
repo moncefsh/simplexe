@@ -9,7 +9,7 @@ void equation::print_eq()
 		case smaller:
 			mark="<";
 			break;
-		case samller_eq:
+		case smaller_eq:
 			mark="<=";
 			break;
 		case equal_eq:
@@ -26,9 +26,10 @@ void equation::print_eq()
 			// i should throw an expection
 	}
 	for (int i = 0; i  <  num_var ; ++ i) {
-		if(factors[i]>=0)
+		if(factors[i]==0) continue;
+		if(factors[i]>0)
 			std::cout<<"+";
-		cout<<factors[i]<<"x_"<<i+1<<" ";
+		cout<<factors[i]<<" x_"<<i+1<<" ";
 	}
 	std::cout<<mark<<" "<<left_num<<std::endl;
 }	
