@@ -6,9 +6,6 @@ void equation::print_eq()
 {
 	std::string mark;
 	switch (type) {
-		case smaller:
-			mark="<";
-			break;
 		case smaller_eq:
 			mark="<=";
 			break;
@@ -17,9 +14,6 @@ void equation::print_eq()
 			break;
 		case bigger_eq:
 			mark=">=";
-			break;
-		case bigger:
-			mark=">";
 			break;
 		default:
 			mark="";
@@ -50,14 +44,35 @@ void problem::print_prob()
 
 }
 
-void problem::solve()
+
+
+void problem::trans_eqs()
 {
+	for(int i=0;i < this->num_constraint ; i++)
+	{
+	       switch (this->constraints[i].type) {
+	       	case smaller_eq :
+	       		this->ecarts[i]=1; 
+	       		break;
+		case equal_eq :
+			this->ecarts[i]=1;
+			this->artifs[i]=1;
+			break;
+		case bigger_eq :
+			this->ecarts[i]=-1;
+			this->artifs[i]=1;
+			break;
+	       	default:
+	       		ecarts[i]=0;
+			artifs[i]=0;
+		}
+	}
 }
 
-void problem::print_sol()
-{
+void problem::print_table(){
+	;
 }
 
-void print_fulsol()
+void problem::print_fulsol()
 {
 }
